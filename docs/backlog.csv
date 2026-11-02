@@ -1,65 +1,65 @@
 ID,Type,Title,Parent,Phase,Effort,Dependencies,URL
-LOG-CON,Epic,Falcone contracts and product boundaries,,,,,
-LOG-CON-001,Story,"Freeze log, error and execution contract inventory",LOG-CON,P0,M,,
-LOG-CON-002,Story,"Define ownership, source enrollment and integration handoffs",LOG-CON,P0,M,LOG-CON-001,
-LOG-CON-003,Story,"Qualify reference licenses, components and telemetry capacity",LOG-CON,P0,L,LOG-CON-001,
-LOG-ING,Epic,Ingestion and SDK compatibility,,,,,
-LOG-ING-001,Story,Implement authenticated OTLP and Falcone batch ingestion,LOG-ING,P1,L,LOG-TEN-001;LOG-PRV-001;LOG-COR-001,
-LOG-ING-002,Story,Implement producer SDKs and optional Sentry envelope compatibility,LOG-ING,P1,L,LOG-ING-001;LOG-CON-003,
-LOG-ING-003,Story,"Implement bounded buffering, retries and loss reporting",LOG-ING,P1,M,LOG-ING-001;LOG-GOV-001,
-LOG-TEN,Epic,"Identity, tenancy and access",,,,,
-LOG-TEN-001,Story,Integrate IAM and separate diagnostic permissions,LOG-TEN,P1,L,LOG-CON-002,
-LOG-TEN-002,Story,Implement trusted producer context and project enrollment,LOG-TEN,P1,L,LOG-TEN-001;LOG-COR-001,
-LOG-TEN-003,Story,"Enforce isolation across search, artifacts and sharing",LOG-TEN,P1,L,LOG-TEN-002;LOG-STO-001,
-LOG-PRV,Epic,Privacy and collection controls,,,,,
-LOG-PRV-001,Story,Implement source and gateway redaction before persistence,LOG-PRV,P1,L,LOG-CON-001;LOG-TEN-001,
-LOG-PRV-002,Story,Implement safe collection profiles and sensitive-field controls,LOG-PRV,P1,M,LOG-PRV-001,
-LOG-PRV-003,Story,"Harden untrusted content, enrichment and export rendering",LOG-PRV,P1,L,LOG-PRV-002;LOG-TEN-001,
-LOG-COR,Epic,Telemetry schema and execution correlation,,,,,
-LOG-COR-001,Story,Define canonical events and provenance metadata,LOG-COR,P0,M,LOG-CON-002,
-LOG-COR-002,Story,Propagate trace context across asynchronous boundaries,LOG-COR,P1,L,LOG-COR-001;LOG-TEN-002,
-LOG-COR-003,Story,Integrate flow timelines and resumable diagnostic overlays,LOG-COR,P2,L,LOG-COR-002;LOG-ING-003;LOG-SEA-002,
-LOG-FUN,Epic,Function and runtime diagnostics,,,,,
-LOG-FUN-001,Story,Capture trusted activation and attempt logs,LOG-FUN,P1,L,LOG-ING-002;LOG-COR-002,
-LOG-FUN-002,Story,Capture runtime failures and execution timing safely,LOG-FUN,P1,M,LOG-FUN-001,
-LOG-FUN-003,Story,"Link function diagnostics to callers, artifacts and releases",LOG-FUN,P2,M,LOG-FUN-002;LOG-REL-001;LOG-TEN-003,
-LOG-QRY,Epic,Database query diagnostics,,,,,
-LOG-QRY-001,Story,Instrument trusted PostgreSQL and MongoDB execution seams,LOG-QRY,P1,L,LOG-ING-002;LOG-COR-002;LOG-PRV-002,
-LOG-QRY-002,Story,Implement sanitized query shapes and performance analysis,LOG-QRY,P1,L,LOG-QRY-001;LOG-SEA-001,
-LOG-QRY-003,Story,Provide safe query error detail and optional plan artifacts,LOG-QRY,P2,M,LOG-QRY-002;LOG-TEN-003,
-LOG-ERR,Epic,Error grouping and issue lifecycle,,,,,
-LOG-ERR-001,Story,Implement deterministic scoped error grouping,LOG-ERR,P1,L,LOG-STO-001;LOG-COR-001;LOG-PRV-001,
-LOG-ERR-002,Story,"Implement assignment, triage and concurrent state transitions",LOG-ERR,P1,M,LOG-ERR-001;LOG-TEN-001,
-LOG-ERR-003,Story,"Implement grouping revisions, merge and split",LOG-ERR,P2,L,LOG-ERR-002;LOG-GOV-003,
-LOG-REL,Epic,Releases and source-level diagnosis,,,,,
-LOG-REL-001,Story,"Implement release, deployment and artifact identity",LOG-REL,P1,M,LOG-CON-002;LOG-TEN-001,
-LOG-REL-002,Story,Implement safe source-map and stack enrichment,LOG-REL,P2,L,LOG-REL-001;LOG-PRV-003;LOG-ERR-001,
-LOG-REL-003,Story,Detect regressions using deployment-aware evidence,LOG-REL,P2,L,LOG-REL-002;LOG-ERR-002,
-LOG-SEA,Epic,"Search, live tail and exports",,,,,
-LOG-SEA-001,Story,"Implement scoped log, error and trace search",LOG-SEA,P1,L,LOG-STO-001;LOG-TEN-002;LOG-GOV-001,
-LOG-SEA-002,Story,Implement resumable authorized live tail,LOG-SEA,P1,M,LOG-SEA-001;LOG-TEN-001,
-LOG-SEA-003,Story,Implement redacted exports and bounded archive investigations,LOG-SEA,P2,L,LOG-SEA-001;LOG-STO-002;LOG-TEN-003;LOG-PRV-003,
-LOG-STO,Epic,"Storage, idempotency and retention",,,,,
-LOG-STO-001,Story,Implement analytical projections and exact issue-state persistence,LOG-STO,P1,L,LOG-CON-003;LOG-COR-001;LOG-TEN-001,
-LOG-STO-002,Story,Implement verified S3 archives and debug/export storage,LOG-STO,P2,L,LOG-STO-001;LOG-PRV-002,
-LOG-STO-003,Story,"Implement retention, tombstones and privacy purge",LOG-STO,P2,L,LOG-STO-002;LOG-TEN-003,
-LOG-ALT,Epic,Alerts and controlled integrations,,,,,
-LOG-ALT-001,Story,Implement scoped alert rules and state transitions,LOG-ALT,P2,L,LOG-ERR-002;LOG-REL-003;LOG-SEA-001,
-LOG-ALT-002,Story,Implement approved notification delivery and incident history,LOG-ALT,P2,L,LOG-ALT-001;LOG-PRV-003,
-LOG-ALT-003,Story,Implement explicit GitHub and workflow integration commands,LOG-ALT,P2,M,LOG-ALT-002;LOG-TEN-003,
-LOG-UI,Epic,Falcone console and developer API,,,,,
-LOG-UI-001,Story,"Build integrated log, issue and execution investigation views",LOG-UI,P2,L,LOG-SEA-002;LOG-ERR-002;LOG-COR-003;LOG-FUN-003;LOG-QRY-002,
-LOG-UI-002,Story,"Implement saved views, dashboards and scoped sharing",LOG-UI,P2,M,LOG-UI-001;LOG-TEN-003,
-LOG-UI-003,Story,"Publish versioned APIs, CLI workflows and synthetic examples",LOG-UI,P1,M,LOG-CON-001;LOG-COR-001;LOG-TEN-001,
-LOG-GOV,Epic,"Quotas, sampling and resource governance",,,,,
-LOG-GOV-001,Story,Implement Falcone ingestion and query resource budgets,LOG-GOV,P1,L,LOG-CON-002;LOG-TEN-001,
-LOG-GOV-002,Story,"Implement sampling, usage facts and coverage reporting",LOG-GOV,P1,L,LOG-GOV-001;LOG-COR-001,
-LOG-GOV-003,Story,"Implement bounded replay, reprocessing and schema evolution",LOG-GOV,P2,L,LOG-STO-001;LOG-GOV-002,
-LOG-OPS,Epic,Restricted deployment and reliability,,,,,
-LOG-OPS-001,Story,Package namespaced collection and approved backend profiles,LOG-OPS,P1,L,LOG-CON-003;LOG-ING-001,
-LOG-OPS-002,Story,"Implement SLOs, independent health and incident runbooks",LOG-OPS,P2,M,LOG-OPS-001;LOG-GOV-002;LOG-ALT-002,
-LOG-OPS-003,Story,Implement coordinated backup and diagnostic recovery,LOG-OPS,P2,L,LOG-OPS-001;LOG-STO-003;LOG-GOV-003,
-LOG-DEV,Epic,Implementation quality and controlled rollout,,,,,
-LOG-DEV-001,Story,Implement reproducible builds and maintenance gates,LOG-DEV,P1,M,LOG-CON-003;LOG-UI-003,
-LOG-DEV-002,Story,"Qualify privacy, isolation, protocol and failure behavior",LOG-DEV,P3,L,LOG-DEV-001;LOG-TEN-003;LOG-PRV-003;LOG-OPS-003;LOG-REL-003;LOG-QRY-003,
-LOG-DEV-003,Story,Run cross-service canaries and controlled production rollout,LOG-DEV,P3,L,LOG-DEV-002;LOG-UI-002;LOG-COR-003;LOG-FUN-003;LOG-QRY-003;LOG-ALT-003;LOG-SEA-003;LOG-OPS-002,
+LOG-CON,Epic,Falcone contracts and product boundaries,,,,,https://github.com/gntik-ai/falcone-logs/issues/1
+LOG-CON-001,Story,"Freeze log, error and execution contract inventory",LOG-CON,P0,M,,https://github.com/gntik-ai/falcone-logs/issues/17
+LOG-CON-002,Story,"Define ownership, source enrollment and integration handoffs",LOG-CON,P0,M,LOG-CON-001,https://github.com/gntik-ai/falcone-logs/issues/18
+LOG-CON-003,Story,"Qualify reference licenses, components and telemetry capacity",LOG-CON,P0,L,LOG-CON-001,https://github.com/gntik-ai/falcone-logs/issues/19
+LOG-ING,Epic,Ingestion and SDK compatibility,,,,,https://github.com/gntik-ai/falcone-logs/issues/2
+LOG-ING-001,Story,Implement authenticated OTLP and Falcone batch ingestion,LOG-ING,P1,L,LOG-TEN-001;LOG-PRV-001;LOG-COR-001,https://github.com/gntik-ai/falcone-logs/issues/20
+LOG-ING-002,Story,Implement producer SDKs and optional Sentry envelope compatibility,LOG-ING,P1,L,LOG-ING-001;LOG-CON-003,https://github.com/gntik-ai/falcone-logs/issues/21
+LOG-ING-003,Story,"Implement bounded buffering, retries and loss reporting",LOG-ING,P1,M,LOG-ING-001;LOG-GOV-001,https://github.com/gntik-ai/falcone-logs/issues/22
+LOG-TEN,Epic,"Identity, tenancy and access",,,,,https://github.com/gntik-ai/falcone-logs/issues/3
+LOG-TEN-001,Story,Integrate IAM and separate diagnostic permissions,LOG-TEN,P1,L,LOG-CON-002,https://github.com/gntik-ai/falcone-logs/issues/23
+LOG-TEN-002,Story,Implement trusted producer context and project enrollment,LOG-TEN,P1,L,LOG-TEN-001;LOG-COR-001,https://github.com/gntik-ai/falcone-logs/issues/24
+LOG-TEN-003,Story,"Enforce isolation across search, artifacts and sharing",LOG-TEN,P1,L,LOG-TEN-002;LOG-STO-001,https://github.com/gntik-ai/falcone-logs/issues/25
+LOG-PRV,Epic,Privacy and collection controls,,,,,https://github.com/gntik-ai/falcone-logs/issues/4
+LOG-PRV-001,Story,Implement source and gateway redaction before persistence,LOG-PRV,P1,L,LOG-CON-001;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/26
+LOG-PRV-002,Story,Implement safe collection profiles and sensitive-field controls,LOG-PRV,P1,M,LOG-PRV-001,https://github.com/gntik-ai/falcone-logs/issues/27
+LOG-PRV-003,Story,"Harden untrusted content, enrichment and export rendering",LOG-PRV,P1,L,LOG-PRV-002;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/28
+LOG-COR,Epic,Telemetry schema and execution correlation,,,,,https://github.com/gntik-ai/falcone-logs/issues/5
+LOG-COR-001,Story,Define canonical events and provenance metadata,LOG-COR,P0,M,LOG-CON-002,https://github.com/gntik-ai/falcone-logs/issues/29
+LOG-COR-002,Story,Propagate trace context across asynchronous boundaries,LOG-COR,P1,L,LOG-COR-001;LOG-TEN-002,https://github.com/gntik-ai/falcone-logs/issues/30
+LOG-COR-003,Story,Integrate flow timelines and resumable diagnostic overlays,LOG-COR,P2,L,LOG-COR-002;LOG-ING-003;LOG-SEA-002,https://github.com/gntik-ai/falcone-logs/issues/31
+LOG-FUN,Epic,Function and runtime diagnostics,,,,,https://github.com/gntik-ai/falcone-logs/issues/6
+LOG-FUN-001,Story,Capture trusted activation and attempt logs,LOG-FUN,P1,L,LOG-ING-002;LOG-COR-002,https://github.com/gntik-ai/falcone-logs/issues/32
+LOG-FUN-002,Story,Capture runtime failures and execution timing safely,LOG-FUN,P1,M,LOG-FUN-001,https://github.com/gntik-ai/falcone-logs/issues/33
+LOG-FUN-003,Story,"Link function diagnostics to callers, artifacts and releases",LOG-FUN,P2,M,LOG-FUN-002;LOG-REL-001;LOG-TEN-003,https://github.com/gntik-ai/falcone-logs/issues/34
+LOG-QRY,Epic,Database query diagnostics,,,,,https://github.com/gntik-ai/falcone-logs/issues/7
+LOG-QRY-001,Story,Instrument trusted PostgreSQL and MongoDB execution seams,LOG-QRY,P1,L,LOG-ING-002;LOG-COR-002;LOG-PRV-002,https://github.com/gntik-ai/falcone-logs/issues/35
+LOG-QRY-002,Story,Implement sanitized query shapes and performance analysis,LOG-QRY,P1,L,LOG-QRY-001;LOG-SEA-001,https://github.com/gntik-ai/falcone-logs/issues/36
+LOG-QRY-003,Story,Provide safe query error detail and optional plan artifacts,LOG-QRY,P2,M,LOG-QRY-002;LOG-TEN-003,https://github.com/gntik-ai/falcone-logs/issues/37
+LOG-ERR,Epic,Error grouping and issue lifecycle,,,,,https://github.com/gntik-ai/falcone-logs/issues/8
+LOG-ERR-001,Story,Implement deterministic scoped error grouping,LOG-ERR,P1,L,LOG-STO-001;LOG-COR-001;LOG-PRV-001,https://github.com/gntik-ai/falcone-logs/issues/38
+LOG-ERR-002,Story,"Implement assignment, triage and concurrent state transitions",LOG-ERR,P1,M,LOG-ERR-001;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/39
+LOG-ERR-003,Story,"Implement grouping revisions, merge and split",LOG-ERR,P2,L,LOG-ERR-002;LOG-GOV-003,https://github.com/gntik-ai/falcone-logs/issues/40
+LOG-REL,Epic,Releases and source-level diagnosis,,,,,https://github.com/gntik-ai/falcone-logs/issues/9
+LOG-REL-001,Story,"Implement release, deployment and artifact identity",LOG-REL,P1,M,LOG-CON-002;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/41
+LOG-REL-002,Story,Implement safe source-map and stack enrichment,LOG-REL,P2,L,LOG-REL-001;LOG-PRV-003;LOG-ERR-001,https://github.com/gntik-ai/falcone-logs/issues/42
+LOG-REL-003,Story,Detect regressions using deployment-aware evidence,LOG-REL,P2,L,LOG-REL-002;LOG-ERR-002,https://github.com/gntik-ai/falcone-logs/issues/43
+LOG-SEA,Epic,"Search, live tail and exports",,,,,https://github.com/gntik-ai/falcone-logs/issues/10
+LOG-SEA-001,Story,"Implement scoped log, error and trace search",LOG-SEA,P1,L,LOG-STO-001;LOG-TEN-002;LOG-GOV-001,https://github.com/gntik-ai/falcone-logs/issues/44
+LOG-SEA-002,Story,Implement resumable authorized live tail,LOG-SEA,P1,M,LOG-SEA-001;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/45
+LOG-SEA-003,Story,Implement redacted exports and bounded archive investigations,LOG-SEA,P2,L,LOG-SEA-001;LOG-STO-002;LOG-TEN-003;LOG-PRV-003,https://github.com/gntik-ai/falcone-logs/issues/46
+LOG-STO,Epic,"Storage, idempotency and retention",,,,,https://github.com/gntik-ai/falcone-logs/issues/11
+LOG-STO-001,Story,Implement analytical projections and exact issue-state persistence,LOG-STO,P1,L,LOG-CON-003;LOG-COR-001;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/47
+LOG-STO-002,Story,Implement verified S3 archives and debug/export storage,LOG-STO,P2,L,LOG-STO-001;LOG-PRV-002,https://github.com/gntik-ai/falcone-logs/issues/48
+LOG-STO-003,Story,"Implement retention, tombstones and privacy purge",LOG-STO,P2,L,LOG-STO-002;LOG-TEN-003,https://github.com/gntik-ai/falcone-logs/issues/49
+LOG-ALT,Epic,Alerts and controlled integrations,,,,,https://github.com/gntik-ai/falcone-logs/issues/12
+LOG-ALT-001,Story,Implement scoped alert rules and state transitions,LOG-ALT,P2,L,LOG-ERR-002;LOG-REL-003;LOG-SEA-001,https://github.com/gntik-ai/falcone-logs/issues/50
+LOG-ALT-002,Story,Implement approved notification delivery and incident history,LOG-ALT,P2,L,LOG-ALT-001;LOG-PRV-003,https://github.com/gntik-ai/falcone-logs/issues/51
+LOG-ALT-003,Story,Implement explicit GitHub and workflow integration commands,LOG-ALT,P2,M,LOG-ALT-002;LOG-TEN-003,https://github.com/gntik-ai/falcone-logs/issues/52
+LOG-UI,Epic,Falcone console and developer API,,,,,https://github.com/gntik-ai/falcone-logs/issues/13
+LOG-UI-001,Story,"Build integrated log, issue and execution investigation views",LOG-UI,P2,L,LOG-SEA-002;LOG-ERR-002;LOG-COR-003;LOG-FUN-003;LOG-QRY-002,https://github.com/gntik-ai/falcone-logs/issues/53
+LOG-UI-002,Story,"Implement saved views, dashboards and scoped sharing",LOG-UI,P2,M,LOG-UI-001;LOG-TEN-003,https://github.com/gntik-ai/falcone-logs/issues/54
+LOG-UI-003,Story,"Publish versioned APIs, CLI workflows and synthetic examples",LOG-UI,P1,M,LOG-CON-001;LOG-COR-001;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/55
+LOG-GOV,Epic,"Quotas, sampling and resource governance",,,,,https://github.com/gntik-ai/falcone-logs/issues/14
+LOG-GOV-001,Story,Implement Falcone ingestion and query resource budgets,LOG-GOV,P1,L,LOG-CON-002;LOG-TEN-001,https://github.com/gntik-ai/falcone-logs/issues/56
+LOG-GOV-002,Story,"Implement sampling, usage facts and coverage reporting",LOG-GOV,P1,L,LOG-GOV-001;LOG-COR-001,https://github.com/gntik-ai/falcone-logs/issues/57
+LOG-GOV-003,Story,"Implement bounded replay, reprocessing and schema evolution",LOG-GOV,P2,L,LOG-STO-001;LOG-GOV-002,https://github.com/gntik-ai/falcone-logs/issues/58
+LOG-OPS,Epic,Restricted deployment and reliability,,,,,https://github.com/gntik-ai/falcone-logs/issues/15
+LOG-OPS-001,Story,Package namespaced collection and approved backend profiles,LOG-OPS,P1,L,LOG-CON-003;LOG-ING-001,https://github.com/gntik-ai/falcone-logs/issues/59
+LOG-OPS-002,Story,"Implement SLOs, independent health and incident runbooks",LOG-OPS,P2,M,LOG-OPS-001;LOG-GOV-002;LOG-ALT-002,https://github.com/gntik-ai/falcone-logs/issues/60
+LOG-OPS-003,Story,Implement coordinated backup and diagnostic recovery,LOG-OPS,P2,L,LOG-OPS-001;LOG-STO-003;LOG-GOV-003,https://github.com/gntik-ai/falcone-logs/issues/61
+LOG-DEV,Epic,Implementation quality and controlled rollout,,,,,https://github.com/gntik-ai/falcone-logs/issues/16
+LOG-DEV-001,Story,Implement reproducible builds and maintenance gates,LOG-DEV,P1,M,LOG-CON-003;LOG-UI-003,https://github.com/gntik-ai/falcone-logs/issues/62
+LOG-DEV-002,Story,"Qualify privacy, isolation, protocol and failure behavior",LOG-DEV,P3,L,LOG-DEV-001;LOG-TEN-003;LOG-PRV-003;LOG-OPS-003;LOG-REL-003;LOG-QRY-003,https://github.com/gntik-ai/falcone-logs/issues/63
+LOG-DEV-003,Story,Run cross-service canaries and controlled production rollout,LOG-DEV,P3,L,LOG-DEV-002;LOG-UI-002;LOG-COR-003;LOG-FUN-003;LOG-QRY-003;LOG-ALT-003;LOG-SEA-003;LOG-OPS-002,https://github.com/gntik-ai/falcone-logs/issues/64

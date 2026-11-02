@@ -1,1 +1,258 @@
-{}
+{
+  "LOG-CON": {
+    "number": 1,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/1"
+  },
+  "LOG-ING": {
+    "number": 2,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/2"
+  },
+  "LOG-TEN": {
+    "number": 3,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/3"
+  },
+  "LOG-PRV": {
+    "number": 4,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/4"
+  },
+  "LOG-COR": {
+    "number": 5,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/5"
+  },
+  "LOG-FUN": {
+    "number": 6,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/6"
+  },
+  "LOG-QRY": {
+    "number": 7,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/7"
+  },
+  "LOG-ERR": {
+    "number": 8,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/8"
+  },
+  "LOG-REL": {
+    "number": 9,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/9"
+  },
+  "LOG-SEA": {
+    "number": 10,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/10"
+  },
+  "LOG-STO": {
+    "number": 11,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/11"
+  },
+  "LOG-ALT": {
+    "number": 12,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/12"
+  },
+  "LOG-UI": {
+    "number": 13,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/13"
+  },
+  "LOG-GOV": {
+    "number": 14,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/14"
+  },
+  "LOG-OPS": {
+    "number": 15,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/15"
+  },
+  "LOG-DEV": {
+    "number": 16,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/16"
+  },
+  "LOG-CON-001": {
+    "number": 17,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/17"
+  },
+  "LOG-CON-002": {
+    "number": 18,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/18"
+  },
+  "LOG-CON-003": {
+    "number": 19,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/19"
+  },
+  "LOG-ING-001": {
+    "number": 20,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/20"
+  },
+  "LOG-ING-002": {
+    "number": 21,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/21"
+  },
+  "LOG-ING-003": {
+    "number": 22,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/22"
+  },
+  "LOG-TEN-001": {
+    "number": 23,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/23"
+  },
+  "LOG-TEN-002": {
+    "number": 24,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/24"
+  },
+  "LOG-TEN-003": {
+    "number": 25,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/25"
+  },
+  "LOG-PRV-001": {
+    "number": 26,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/26"
+  },
+  "LOG-PRV-002": {
+    "number": 27,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/27"
+  },
+  "LOG-PRV-003": {
+    "number": 28,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/28"
+  },
+  "LOG-COR-001": {
+    "number": 29,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/29"
+  },
+  "LOG-COR-002": {
+    "number": 30,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/30"
+  },
+  "LOG-COR-003": {
+    "number": 31,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/31"
+  },
+  "LOG-FUN-001": {
+    "number": 32,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/32"
+  },
+  "LOG-FUN-002": {
+    "number": 33,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/33"
+  },
+  "LOG-FUN-003": {
+    "number": 34,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/34"
+  },
+  "LOG-QRY-001": {
+    "number": 35,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/35"
+  },
+  "LOG-QRY-002": {
+    "number": 36,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/36"
+  },
+  "LOG-QRY-003": {
+    "number": 37,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/37"
+  },
+  "LOG-ERR-001": {
+    "number": 38,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/38"
+  },
+  "LOG-ERR-002": {
+    "number": 39,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/39"
+  },
+  "LOG-ERR-003": {
+    "number": 40,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/40"
+  },
+  "LOG-REL-001": {
+    "number": 41,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/41"
+  },
+  "LOG-REL-002": {
+    "number": 42,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/42"
+  },
+  "LOG-REL-003": {
+    "number": 43,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/43"
+  },
+  "LOG-SEA-001": {
+    "number": 44,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/44"
+  },
+  "LOG-SEA-002": {
+    "number": 45,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/45"
+  },
+  "LOG-SEA-003": {
+    "number": 46,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/46"
+  },
+  "LOG-STO-001": {
+    "number": 47,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/47"
+  },
+  "LOG-STO-002": {
+    "number": 48,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/48"
+  },
+  "LOG-STO-003": {
+    "number": 49,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/49"
+  },
+  "LOG-ALT-001": {
+    "number": 50,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/50"
+  },
+  "LOG-ALT-002": {
+    "number": 51,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/51"
+  },
+  "LOG-ALT-003": {
+    "number": 52,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/52"
+  },
+  "LOG-UI-001": {
+    "number": 53,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/53"
+  },
+  "LOG-UI-002": {
+    "number": 54,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/54"
+  },
+  "LOG-UI-003": {
+    "number": 55,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/55"
+  },
+  "LOG-GOV-001": {
+    "number": 56,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/56"
+  },
+  "LOG-GOV-002": {
+    "number": 57,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/57"
+  },
+  "LOG-GOV-003": {
+    "number": 58,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/58"
+  },
+  "LOG-OPS-001": {
+    "number": 59,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/59"
+  },
+  "LOG-OPS-002": {
+    "number": 60,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/60"
+  },
+  "LOG-OPS-003": {
+    "number": 61,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/61"
+  },
+  "LOG-DEV-001": {
+    "number": 62,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/62"
+  },
+  "LOG-DEV-002": {
+    "number": 63,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/63"
+  },
+  "LOG-DEV-003": {
+    "number": 64,
+    "url": "https://github.com/gntik-ai/falcone-logs/issues/64"
+  }
+}
