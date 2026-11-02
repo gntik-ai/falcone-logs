@@ -1,0 +1,674 @@
+[
+  {
+    "id": "LOG-CON",
+    "title": "[Epic][LOG-CON] Falcone contracts and product boundaries",
+    "body": "<!-- falcone-logs:LOG-CON -->\n\n## Outcome\n\nDefine a custom investigation service that preserves current Falcone behavior.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-CON-001: Freeze log, error and execution contract inventory\n- [ ] LOG-CON-002: Define ownership, source enrollment and integration handoffs\n- [ ] LOG-CON-003: Qualify reference licenses, components and telemetry capacity\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:con"
+    ]
+  },
+  {
+    "id": "LOG-CON-001",
+    "title": "[LOG-CON-001] Freeze log, error and execution contract inventory",
+    "body": "<!-- falcone-logs:LOG-CON-001 -->\n\nParent: LOG-CON\n\n## User story\n\nAs a Falcone maintainer, I want versioned fixtures for all diagnostic producers and consumers, so that new analysis preserves existing contracts.\n\n## Description\n\nVersioned fixtures for all diagnostic producers and consumers.\n\nPhase: P0 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-CON-001-1**: The project must inventory deployed log/error sources, flow SSE, activation policies, query adapters, audit and metric contracts against a pinned Falcone revision.\n- **FR-LOG-CON-001-2**: Existing public schemas, scope checks, error precedence and stream resume behavior must remain covered by compatibility fixtures.\n\n## Acceptance criteria\n\n- [ ] Include main Falcone, current Temporal/Knative paths and planned native sibling contracts without treating proposals as deployed functionality.\n- [ ] Preserve fix-1118 query-key logging restrictions, separate log/result permissions and governed audit failure semantics.\n- [ ] Identify actual collectors, versions, raw Sentry consumers if any, datasource coverage and current retention; record evidence gaps.\n\n## Dependencies\n\nNone; discovery can begin independently.\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:con",
+      "phase:p0",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-CON-002",
+    "title": "[LOG-CON-002] Define ownership, source enrollment and integration handoffs",
+    "body": "<!-- falcone-logs:LOG-CON-002 -->\n\nParent: LOG-CON\n\n## User story\n\nAs a platform architect, I want clear authority for diagnostics and execution state, so that Falcone services do not compete to own policies or histories.\n\n## Description\n\nClear authority for diagnostics and execution state.\n\nPhase: P0 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-CON-002-1**: Logs must own investigation/error state while IAM, secrets, S3, workflow, runtime, audit and metering retain their existing authorities.\n- **FR-LOG-CON-002-2**: Every producer integration must identify its owning repository and the versioned scope, lineage and delivery contracts it consumes.\n\n## Acceptance criteria\n\n- [ ] Use shared Falcone outbox/inbox/fencing contracts; gaps become owning-repository handoffs, not duplicate implementations.\n- [ ] Respect serverless ADR 0008 status and OCI pod-versus-invocation attribution; use accepted secrets decisions.\n- [ ] Document diagnostics as additive projections: resolving an issue never changes run state, reruns code or executes a query.\n\n## Dependencies\n\nLOG-CON-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:con",
+      "phase:p0",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-CON-003",
+    "title": "[LOG-CON-003] Qualify reference licenses, components and telemetry capacity",
+    "body": "<!-- falcone-logs:LOG-CON-003 -->\n\nParent: LOG-CON\n\n## User story\n\nAs a maintainer, I want reviewed technology and sizing decisions, so that the service can be operated and distributed responsibly.\n\n## Description\n\nReviewed technology and sizing decisions.\n\nPhase: P0 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-CON-003-1**: Dependency intake must pin component versions/licenses and distinguish open-source, source-available and enterprise-only code before reuse.\n- **FR-LOG-CON-003-2**: Capacity decisions must measure telemetry rates, bytes, cardinality, retention and query concurrency independently from application message counts.\n\n## Acceptance criteria\n\n- [ ] Review Sentry FSL and SDK transitive tooling, MIT/community and enterprise boundaries, AGPL references and the repository-license decision.\n- [ ] Benchmark TypeScript processing and proposed Go/OTel ingestion; require approved ClickHouse or a tested alternative backend profile.\n- [ ] Record infrastructure and data-volume assumptions; no performance or compliance claim is inherited from a reference project.\n\n## Dependencies\n\nLOG-CON-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:con",
+      "phase:p0",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ING",
+    "title": "[Epic][LOG-ING] Ingestion and SDK compatibility",
+    "body": "<!-- falcone-logs:LOG-ING -->\n\n## Outcome\n\nAccept bounded, scoped diagnostics with honest acknowledgement and loss semantics.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-ING-001: Implement authenticated OTLP and Falcone batch ingestion\n- [ ] LOG-ING-002: Implement producer SDKs and optional Sentry envelope compatibility\n- [ ] LOG-ING-003: Implement bounded buffering, retries and loss reporting\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:ing"
+    ]
+  },
+  {
+    "id": "LOG-ING-001",
+    "title": "[LOG-ING-001] Implement authenticated OTLP and Falcone batch ingestion",
+    "body": "<!-- falcone-logs:LOG-ING-001 -->\n\nParent: LOG-ING\n\n## User story\n\nAs an application developer, I want standard log/trace ingestion plus Falcone adapters, so that diagnostics enter one supported service.\n\n## Description\n\nStandard log/trace ingestion plus Falcone adapters.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-ING-001-1**: Ingestion must validate schema, source authority, size/decompression limits and mandatory redaction before any persistent queue.\n- **FR-LOG-ING-001-2**: Durable acceptance must follow the configured broker acknowledgement while preserving protocol-specific success, partial-success and retry responses.\n\n## Acceptance criteria\n\n- [ ] Implement qualified OTLP HTTP/protobuf and custom batch profiles; optional gRPC requires its own tests.\n- [ ] Test mixed valid/invalid batches, oversized attributes, wrong audience, broker failure and lost acknowledgement without persisting raw rejection payloads.\n- [ ] Publish per-interface outcomes and limits; do not substitute a generic HTTP 202 for required OTLP semantics.\n\n## Dependencies\n\nLOG-TEN-001, LOG-PRV-001, LOG-COR-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ing",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ING-002",
+    "title": "[LOG-ING-002] Implement producer SDKs and optional Sentry envelope compatibility",
+    "body": "<!-- falcone-logs:LOG-ING-002 -->\n\nParent: LOG-ING\n\n## User story\n\nAs an integration developer, I want supported instrumentation for Node, Go and Python, so that applications can export diagnostics predictably.\n\n## Description\n\nSupported instrumentation for Node, Go and Python.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-ING-002-1**: SDK adapters must emit versioned trusted Falcone context and bounded logs/errors using pinned supported runtime/library versions.\n- **FR-LOG-ING-002-2**: Any Sentry compatibility endpoint must advertise tested envelope item types and SDK versions and reject unsupported items explicitly.\n\n## Acceptance criteria\n\n- [ ] Test Node/Go/Python log/exception propagation, stable transport-retry IDs and current checksum/compression/protocol behavior.\n- [ ] Sentry read/admin APIs, replay, profiling and attachments are not implied by accepting error envelopes; review all transitive licenses.\n- [ ] Browser/public keys, if enabled, are scoped write-only untrusted sources and cannot assert verified user/runtime identity.\n\n## Dependencies\n\nLOG-ING-001, LOG-CON-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ing",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ING-003",
+    "title": "[LOG-ING-003] Implement bounded buffering, retries and loss reporting",
+    "body": "<!-- falcone-logs:LOG-ING-003 -->\n\nParent: LOG-ING\n\n## User story\n\nAs an SRE, I want controlled telemetry pressure and visible loss, so that an observability outage does not exhaust applications.\n\n## Description\n\nControlled telemetry pressure and visible loss.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-ING-003-1**: Producer/gateway buffers and retries must be bounded by bytes, time and policy, with explicit accepted/rejected/sampled/dropped reasons.\n- **FR-LOG-ING-003-2**: Application diagnostics must export asynchronously without changing execution results, while existing governed audit blocking semantics remain intact.\n\n## Acceptance criteria\n\n- [ ] Exercise hard kill, queue exhaustion, slow broker and poison batches; sanitize before any persistent exporter WAL.\n- [ ] Prioritize critical summaries within caps without promising all errors survive arbitrary overload.\n- [ ] Expose retry guidance and drain/shutdown budgets; no unbounded synchronous log flush on function completion.\n\n## Dependencies\n\nLOG-ING-001, LOG-GOV-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ing",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-TEN",
+    "title": "[Epic][LOG-TEN] Identity, tenancy and access",
+    "body": "<!-- falcone-logs:LOG-TEN -->\n\n## Outcome\n\nEnforce Falcone scope across ingestion, investigation and sharing.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-TEN-001: Integrate IAM and separate diagnostic permissions\n- [ ] LOG-TEN-002: Implement trusted producer context and project enrollment\n- [ ] LOG-TEN-003: Enforce isolation across search, artifacts and sharing\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:ten"
+    ]
+  },
+  {
+    "id": "LOG-TEN-001",
+    "title": "[LOG-TEN-001] Integrate IAM and separate diagnostic permissions",
+    "body": "<!-- falcone-logs:LOG-TEN-001 -->\n\nParent: LOG-TEN\n\n## User story\n\nAs a workspace administrator, I want Falcone-controlled log and error permissions, so that users see only authorized investigation data.\n\n## Description\n\nFalcone-controlled log and error permissions.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-TEN-001-1**: All management/query operations must authenticate through Falcone IAM and authorize tenant/workspace/resource/action scope.\n- **FR-LOG-TEN-001-2**: Log read, error read, source-artifact read, triage, export, destination configuration and platform investigation must be distinct permissions.\n\n## Acceptance criteria\n\n- [ ] Preserve activation log/result policies and verified workspace claims; role-name or actor-type strings alone do not widen access.\n- [ ] Test expired tokens, wrong issuer/audience, scoped grants and platform-global redacted views.\n- [ ] Define bounded policy-cache and live-stream recheck behavior; unavailable required authorization fails closed.\n\n## Dependencies\n\nLOG-CON-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ten",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-TEN-002",
+    "title": "[LOG-TEN-002] Implement trusted producer context and project enrollment",
+    "body": "<!-- falcone-logs:LOG-TEN-002 -->\n\nParent: LOG-TEN\n\n## User story\n\nAs a runtime owner, I want resource-bound ingestion identities, so that tenant code cannot forge another execution or scope.\n\n## Description\n\nResource-bound ingestion identities.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-TEN-002-1**: Producer enrollment must bind a source/project to verified tenant/workspace ownership, resource grants and allowed signals.\n- **FR-LOG-TEN-002-2**: Reserved identity fields must be supplied or verified by trusted host/dispatch adapters, with conflicting untrusted attributes rejected or isolated.\n\n## Acceptance criteria\n\n- [ ] Test malicious guest tenant/run/activation IDs, identical trace IDs in different tenants and revoked ingestion credentials.\n- [ ] Projects are Falcone configuration under existing workspaces, not a second organization/team directory.\n- [ ] Keep public browser ingestion explicitly untrusted and rate-limited; credentials and rotations use falcone-secrets.\n\n## Dependencies\n\nLOG-TEN-001, LOG-COR-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ten",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-TEN-003",
+    "title": "[LOG-TEN-003] Enforce isolation across search, artifacts and sharing",
+    "body": "<!-- falcone-logs:LOG-TEN-003 -->\n\nParent: LOG-TEN\n\n## User story\n\nAs a security engineer, I want consistent scope on every retrieval path, so that facets or exports cannot bypass tenant isolation.\n\n## Description\n\nConsistent scope on every retrieval path.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-TEN-003-1**: Every detail, search, facet, aggregate, join, cursor, tail, artifact and export must enforce authorized scope before returning data.\n- **FR-LOG-TEN-003-2**: Backend roles, query compilation and caches must prevent arbitrary SQL/table-function access and cross-scope data reuse.\n\n## Acceptance criteria\n\n- [ ] Use PostgreSQL RLS and restricted analytical roles/policies; tenants cannot set trusted backend namespace headers.\n- [ ] Test saved links, autocomplete, archive rehydrate, reused cursors and scope/policy changes with same-name resources.\n- [ ] Source snippets require source permission; correlation IDs remain locators, never bearer authority.\n\n## Dependencies\n\nLOG-TEN-002, LOG-STO-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ten",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-PRV",
+    "title": "[Epic][LOG-PRV] Privacy and collection controls",
+    "body": "<!-- falcone-logs:LOG-PRV -->\n\n## Outcome\n\nPrevent sensitive diagnostic content from reaching unauthorized persistence or viewers.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-PRV-001: Implement source and gateway redaction before persistence\n- [ ] LOG-PRV-002: Implement safe collection profiles and sensitive-field controls\n- [ ] LOG-PRV-003: Harden untrusted content, enrichment and export rendering\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:prv"
+    ]
+  },
+  {
+    "id": "LOG-PRV-001",
+    "title": "[LOG-PRV-001] Implement source and gateway redaction before persistence",
+    "body": "<!-- falcone-logs:LOG-PRV-001 -->\n\nParent: LOG-PRV\n\n## User story\n\nAs a privacy engineer, I want mandatory minimization and redaction, so that logs do not become a secondary secret store.\n\n## Description\n\nMandatory minimization and redaction.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-PRV-001-1**: The pipeline must apply allowlists and redaction before Kafka, persistent queues, DLQs, archives and internal diagnostic logging.\n- **FR-LOG-PRV-001-2**: Query-bearing request errors must preserve fix-1118 by omitting raw exception messages, stacks, causes and URL/query material.\n\n## Acceptance criteria\n\n- [ ] Inject synthetic keys into nested logs, headers, signed URLs, causes, breadcrumbs and truncation boundaries; scan every persistent sink.\n- [ ] A policy-engine failure rejects/drops protected content with safe metadata, never stores an unfiltered fallback.\n- [ ] Generic auto-capture cannot bypass producer restrictions; document residual limits of redacting arbitrary unstructured text.\n\n## Dependencies\n\nLOG-CON-001, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:prv",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-PRV-002",
+    "title": "[LOG-PRV-002] Implement safe collection profiles and sensitive-field controls",
+    "body": "<!-- falcone-logs:LOG-PRV-002 -->\n\nParent: LOG-PRV\n\n## User story\n\nAs a tenant privacy owner, I want explicit diagnostic collection policies, so that useful investigation does not require collecting application data.\n\n## Description\n\nExplicit diagnostic collection policies.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-PRV-002-1**: Default policies must exclude request/response bodies, query parameters/results, documents, vectors, secrets and LLM content from telemetry.\n- **FR-LOG-PRV-002-2**: Field exceptions, pseudonymous user grouping and source/debug capture must be explicit scoped policies with retention and audit.\n\n## Acceptance criteria\n\n- [ ] Use metadata-only rejection/quarantine by default; disabled content cannot leak through enrichment, exports or alerts.\n- [ ] Test policy version changes, nested attribute limits and unparseable SQL/Mongo shapes; hashing raw secrets is not anonymization.\n- [ ] Publish per-source available/omitted fields so the UI does not imply a missing stack or payload can be reconstructed.\n\n## Dependencies\n\nLOG-PRV-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:prv",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-PRV-003",
+    "title": "[LOG-PRV-003] Harden untrusted content, enrichment and export rendering",
+    "body": "<!-- falcone-logs:LOG-PRV-003 -->\n\nParent: LOG-PRV\n\n## User story\n\nAs a security reviewer, I want bounded safe processing of logs and artifacts, so that hostile tenant content cannot attack operators.\n\n## Description\n\nBounded safe processing of logs and artifacts.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-PRV-003-1**: Log/source/comment rendering and exports must neutralize script, control-character and spreadsheet-formula injection.\n- **FR-LOG-PRV-003-2**: Parsers and enrichment jobs must enforce time/memory/archive limits and prohibit execution of uploaded code or arbitrary network fetch.\n\n## Acceptance criteria\n\n- [ ] Test stored XSS, ANSI injection, archive traversal/bombs, regex denial of service and malicious source maps.\n- [ ] Disable arbitrary source-map URLs; any future fetch/destination uses scoped egress, TLS, DNS and redirect checks.\n- [ ] Keep model-assisted investigation optional and treat log content as untrusted data, not tool instructions.\n\n## Dependencies\n\nLOG-PRV-002, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:prv",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-COR",
+    "title": "[Epic][LOG-COR] Telemetry schema and execution correlation",
+    "body": "<!-- falcone-logs:LOG-COR -->\n\n## Outcome\n\nConnect diagnostic signals to trusted Falcone execution lineage.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-COR-001: Define canonical events and provenance metadata\n- [ ] LOG-COR-002: Propagate trace context across asynchronous boundaries\n- [ ] LOG-COR-003: Integrate flow timelines and resumable diagnostic overlays\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:cor"
+    ]
+  },
+  {
+    "id": "LOG-COR-001",
+    "title": "[LOG-COR-001] Define canonical events and provenance metadata",
+    "body": "<!-- falcone-logs:LOG-COR-001 -->\n\nParent: LOG-COR\n\n## User story\n\nAs an integration architect, I want one versioned diagnostic envelope, so that sources can be analyzed without losing their semantics.\n\n## Description\n\nOne versioned diagnostic envelope.\n\nPhase: P0 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-COR-001-1**: The event contract must define scoped source identity, signal/time fields, execution lineage, content policy and quality metadata.\n- **FR-LOG-COR-001-2**: Adapters must preserve original public contracts while recording normalized schema/version and trusted versus reported fields.\n\n## Acceptance criteria\n\n- [ ] Cover log/error/span/query events, producer epoch/sequence, source/observed times and truncation/sampling/loss flags.\n- [ ] Keep audit event schema and existing Falcone correlation IDs distinct from OTel trace identity.\n- [ ] Publish fixtures for two tenants, legacy aliases, unknown fields and version evolution; reject ambiguous ownership.\n\n## Dependencies\n\nLOG-CON-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:cor",
+      "phase:p0",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-COR-002",
+    "title": "[LOG-COR-002] Propagate trace context across asynchronous boundaries",
+    "body": "<!-- falcone-logs:LOG-COR-002 -->\n\nParent: LOG-COR\n\n## User story\n\nAs a developer, I want linked logs and spans across services, so that I can follow one operation through Falcone.\n\n## Description\n\nLinked logs and spans across services.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-COR-002-1**: Trusted adapters must propagate W3C trace context and Falcone correlation/causation IDs across requests, messages and runtime calls.\n- **FR-LOG-COR-002-2**: Long-running or asynchronous work must use bounded trace segments and explicit links rather than requiring one indefinitely open span.\n\n## Acceptance criteria\n\n- [ ] Test flow-to-function-to-database, Kafka delivery, child runs, retry attempts and missing trace headers.\n- [ ] Preserve source sequence and clock uncertainty; do not infer global order or root cause from receipt time.\n- [ ] Expose sampled/missing spans and link provenance; reused trace IDs cannot cross tenant authorization.\n\n## Dependencies\n\nLOG-COR-001, LOG-TEN-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:cor",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-COR-003",
+    "title": "[LOG-COR-003] Integrate flow timelines and resumable diagnostic overlays",
+    "body": "<!-- falcone-logs:LOG-COR-003 -->\n\nParent: LOG-COR\n\n## User story\n\nAs a flow author, I want node and attempt diagnostics beside the run graph, so that I can investigate failed or retried steps.\n\n## Description\n\nNode and attempt diagnostics beside the run graph.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-COR-003-1**: Flow investigation must distinguish run, node occurrence, loop/map iteration and retry attempt and link authoritative status to diagnostic evidence.\n- **FR-LOG-COR-003-2**: Existing flow SSE frame/sequence/resume semantics must remain unchanged when adding diagnostic overlays and new tail cursors.\n\n## Acceptance criteria\n\n- [ ] Test current Temporal history frames and native workflow events, long waits, nested flows and terminal/retry outcomes.\n- [ ] Reconstruction/replay cannot emit old logs as new occurrences; late diagnostics cannot rewrite workflow outcome.\n- [ ] Issue triage cannot resolve workflow incidents or rerun nodes; cross-repository producer/console changes require owned handoffs.\n\n## Dependencies\n\nLOG-COR-002, LOG-ING-003, LOG-SEA-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:cor",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-FUN",
+    "title": "[Epic][LOG-FUN] Function and runtime diagnostics",
+    "body": "<!-- falcone-logs:LOG-FUN -->\n\n## Outcome\n\nCapture scoped execution evidence without changing runtime authority or isolation.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-FUN-001: Capture trusted activation and attempt logs\n- [ ] LOG-FUN-002: Capture runtime failures and execution timing safely\n- [ ] LOG-FUN-003: Link function diagnostics to callers, artifacts and releases\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:fun"
+    ]
+  },
+  {
+    "id": "LOG-FUN-001",
+    "title": "[LOG-FUN-001] Capture trusted activation and attempt logs",
+    "body": "<!-- falcone-logs:LOG-FUN-001 -->\n\nParent: LOG-FUN\n\n## User story\n\nAs a function developer, I want logs tied to the correct activation and revision, so that concurrent executions can be investigated separately.\n\n## Description\n\nLogs tied to the correct activation and revision.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-FUN-001-1**: Function diagnostics must identify trusted action/revision, activation/job/attempt, runtime mode and source stream where available.\n- **FR-LOG-FUN-001-2**: WASM host/shim and OCI per-invocation logs must preserve their distinct identity boundaries and resource budgets.\n\n## Acceptance criteria\n\n- [ ] Test concurrent invocations and tenant-supplied forged context; OCI pod stdout remains pod/revision-level unless attribution is proven.\n- [ ] Integrate current Knative activation responses plus native host/shim contracts without exposing broad ingestion credentials to guests.\n- [ ] Keep logs, results and source read permissions separate and preserve activation retention/error envelopes.\n\n## Dependencies\n\nLOG-ING-002, LOG-COR-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:fun",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-FUN-002",
+    "title": "[LOG-FUN-002] Capture runtime failures and execution timing safely",
+    "body": "<!-- falcone-logs:LOG-FUN-002 -->\n\nParent: LOG-FUN\n\n## User story\n\nAs an operator, I want termination and timing evidence beyond application exceptions, so that timeouts or host crashes are diagnosable.\n\n## Description\n\nTermination and timing evidence beyond application exceptions.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-FUN-002-1**: Runtime failure events must distinguish application errors, timeout/cancel, host termination and unavailable diagnostic evidence.\n- **FR-LOG-FUN-002-2**: Timing fields must distinguish scheduling/cold-start, execution, host-call and telemetry delay and mark unmeasured values unknown.\n\n## Acceptance criteria\n\n- [ ] Test OOM/kill, crash before flush, cancelled attempts, missing stacks and successful execution during logs-service outage.\n- [ ] Do not infer invocation attribution from pod labels alone when several executions share a runtime.\n- [ ] Collection remains namespaced and approved; no privileged node agent or eBPF dependency is introduced.\n\n## Dependencies\n\nLOG-FUN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:fun",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-FUN-003",
+    "title": "[LOG-FUN-003] Link function diagnostics to callers, artifacts and releases",
+    "body": "<!-- falcone-logs:LOG-FUN-003 -->\n\nParent: LOG-FUN\n\n## User story\n\nAs a runtime maintainer, I want verified diagnostic links to invoking flows and deployed code, so that developers can identify the affected execution context.\n\n## Description\n\nVerified diagnostic links to invoking flows and deployed code.\n\nPhase: P2 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-FUN-003-1**: Function investigations must link trusted caller lineage and immutable artifact/release identity without exposing unauthorized source or payloads.\n- **FR-LOG-FUN-003-2**: Log retrieval and export must honor effective activation/source retention and current permission rules across hot and archived data.\n\n## Acceptance criteria\n\n- [ ] Test flow caller, standalone invocation, stale revision, artifact digest mismatch and missing debug data.\n- [ ] Expired activation access cannot be bypassed by trace lookup, archive search or a saved error link.\n- [ ] Record serverless/main Falcone instrumentation and UI handoffs separately; logs does not own runtime scheduling.\n\n## Dependencies\n\nLOG-FUN-002, LOG-REL-001, LOG-TEN-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:fun",
+      "phase:p2",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-QRY",
+    "title": "[Epic][LOG-QRY] Database query diagnostics",
+    "body": "<!-- falcone-logs:LOG-QRY -->\n\n## Outcome\n\nAnalyze datasource errors and performance without capturing business data by default.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-QRY-001: Instrument trusted PostgreSQL and MongoDB execution seams\n- [ ] LOG-QRY-002: Implement sanitized query shapes and performance analysis\n- [ ] LOG-QRY-003: Provide safe query error detail and optional plan artifacts\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:qry"
+    ]
+  },
+  {
+    "id": "LOG-QRY-001",
+    "title": "[LOG-QRY-001] Instrument trusted PostgreSQL and MongoDB execution seams",
+    "body": "<!-- falcone-logs:LOG-QRY-001 -->\n\nParent: LOG-QRY\n\n## User story\n\nAs a data-service developer, I want safe per-operation timing and failure events, so that I can diagnose datasource behavior from Falcone.\n\n## Description\n\nSafe per-operation timing and failure events.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-QRY-001-1**: Query diagnostics must capture verified logical datasource, execution ID, operation, safe error category and defined timing/row-count semantics.\n- **FR-LOG-QRY-001-2**: Instrumentation must preserve existing query authorization, RLS, error responses and execution behavior.\n\n## Acceptance criteria\n\n- [ ] Test workflow/function-origin queries, direct data API operations, cancellation, timeout and opaque driver causes.\n- [ ] Separate pool wait, client duration and measured server time; define Mongo cursor lifetime rather than reporting dispatch as full execution.\n- [ ] Never include connection strings, bind values, rows/documents or embedding vectors in default events.\n\n## Dependencies\n\nLOG-ING-002, LOG-COR-002, LOG-PRV-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:qry",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-QRY-002",
+    "title": "[LOG-QRY-002] Implement sanitized query shapes and performance analysis",
+    "body": "<!-- falcone-logs:LOG-QRY-002 -->\n\nParent: LOG-QRY\n\n## User story\n\nAs a workspace developer, I want aggregates by safe query shape, so that I can find slow or repeatedly failing operations.\n\n## Description\n\nAggregates by safe query shape.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-QRY-002-1**: Query normalization must use supported dialect parsers or known adapter plans and omit unsafe/unparseable text instead of retaining raw statements.\n- **FR-LOG-QRY-002-2**: Query summaries must provide scoped latency/error statistics with coverage, sampling and denominator quality explicitly reported.\n\n## Acceptance criteria\n\n- [ ] Test literals/comments, identifiers, SQL dialects and Mongo filters without exposing values; version normalized fingerprints.\n- [ ] Repeated-call/N+1 and regression results are evidence-backed candidates, not automatic root-cause claims.\n- [ ] Do not derive exact failure rates from sampled errors or conflate client/network latency with server execution time.\n\n## Dependencies\n\nLOG-QRY-001, LOG-SEA-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:qry",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-QRY-003",
+    "title": "[LOG-QRY-003] Provide safe query error detail and optional plan artifacts",
+    "body": "<!-- falcone-logs:LOG-QRY-003 -->\n\nParent: LOG-QRY\n\n## User story\n\nAs a database operator, I want controlled query investigation details, so that I can investigate failures without granting execution rights to logs.\n\n## Description\n\nControlled query investigation details.\n\nPhase: P2 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-QRY-003-1**: Query error views must link safe classification, sanitized shape and originating run/activation under datasource-aware authorization.\n- **FR-LOG-QRY-003-2**: Query plans must be optional authorized artifacts; the logs service must not automatically execute user SQL or EXPLAIN ANALYZE.\n\n## Acceptance criteria\n\n- [ ] Test plan/source access distinct from log access and redact plan constants or sensitive identifiers.\n- [ ] Unknown normalization/plan data is shown as unavailable; no hidden diagnostic re-execution changes production state.\n- [ ] Publish supported PostgreSQL/MongoDB categories and plan-profile limits; add other query systems through separate adapters.\n\n## Dependencies\n\nLOG-QRY-002, LOG-TEN-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:qry",
+      "phase:p2",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-ERR",
+    "title": "[Epic][LOG-ERR] Error grouping and issue lifecycle",
+    "body": "<!-- falcone-logs:LOG-ERR -->\n\n## Outcome\n\nTurn occurrences into actionable Falcone issues with correct counts and history.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-ERR-001: Implement deterministic scoped error grouping\n- [ ] LOG-ERR-002: Implement assignment, triage and concurrent state transitions\n- [ ] LOG-ERR-003: Implement grouping revisions, merge and split\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:err"
+    ]
+  },
+  {
+    "id": "LOG-ERR-001",
+    "title": "[LOG-ERR-001] Implement deterministic scoped error grouping",
+    "body": "<!-- falcone-logs:LOG-ERR-001 -->\n\nParent: LOG-ERR\n\n## User story\n\nAs a developer, I want similar exceptions grouped into issues, so that I can prioritize recurring problems.\n\n## Description\n\nSimilar exceptions grouped into issues.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-ERR-001-1**: Grouping must use versioned deterministic normalized fingerprints inside trusted tenant/workspace/project scope.\n- **FR-LOG-ERR-001-2**: Transport duplicate occurrences must not increase issue counts, while distinct failed execution attempts must remain separate occurrences.\n\n## Acceptance criteria\n\n- [ ] Test exception types/stacks/templates with variable IDs and values, expected cancellations and missing stacks.\n- [ ] Release IDs do not fragment default grouping; client fingerprint hints cannot merge another scope.\n- [ ] Record grouping version and provenance; unrelated flow/function/query errors can be linked without pretending causal identity.\n\n## Dependencies\n\nLOG-STO-001, LOG-COR-001, LOG-PRV-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:err",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ERR-002",
+    "title": "[LOG-ERR-002] Implement assignment, triage and concurrent state transitions",
+    "body": "<!-- falcone-logs:LOG-ERR-002 -->\n\nParent: LOG-ERR\n\n## User story\n\nAs a team maintainer, I want assignable and auditable error states, so that developers can coordinate investigation.\n\n## Description\n\nAssignable and auditable error states.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-ERR-002-1**: Issues must support unresolved, acknowledged, resolved and snoozed states, authorized assignment, priority/tags and transition history.\n- **FR-LOG-ERR-002-2**: Issue mutations must use revision checks/idempotency and remain independent from workflow incidents or runtime control actions.\n\n## Acceptance criteria\n\n- [ ] Test concurrent resolve/assign, stale revisions, unauthorized assignees and expired snoozes.\n- [ ] Assignments refer to Falcone IAM users/teams rather than a new directory; comments are escaped and scoped.\n- [ ] Display exact accepted occurrence counts separately from sampled estimates, affected-user estimates and actual business impact.\n\n## Dependencies\n\nLOG-ERR-001, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:err",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-ERR-003",
+    "title": "[LOG-ERR-003] Implement grouping revisions, merge and split",
+    "body": "<!-- falcone-logs:LOG-ERR-003 -->\n\nParent: LOG-ERR\n\n## User story\n\nAs an error-triage owner, I want controlled grouping corrections, so that noisy or incorrectly combined issues can be repaired.\n\n## Description\n\nControlled grouping corrections.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-ERR-003-1**: Merge/split and grouping changes must preserve immutable occurrence identity, prior mapping provenance and auditable transitions.\n- **FR-LOG-ERR-003-2**: Regrouping/reprocessing must be bounded, resumable and notification-safe without duplicating occurrence counts.\n\n## Acceptance criteria\n\n- [ ] Preview affected scoped events, apply with fencing/revision checks and support an auditable reversal where defined.\n- [ ] Test algorithm upgrades, late events, replay windows and duplicate storage rows.\n- [ ] Do not execute tenant scripts/unbounded regexes; related-error suggestions retain confidence/provenance and never auto-merge across scope.\n\n## Dependencies\n\nLOG-ERR-002, LOG-GOV-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:err",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-REL",
+    "title": "[Epic][LOG-REL] Releases and source-level diagnosis",
+    "body": "<!-- falcone-logs:LOG-REL -->\n\n## Outcome\n\nConnect errors to immutable deployed code and qualified debug artifacts.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-REL-001: Implement release, deployment and artifact identity\n- [ ] LOG-REL-002: Implement safe source-map and stack enrichment\n- [ ] LOG-REL-003: Detect regressions using deployment-aware evidence\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:rel"
+    ]
+  },
+  {
+    "id": "LOG-REL-001",
+    "title": "[LOG-REL-001] Implement release, deployment and artifact identity",
+    "body": "<!-- falcone-logs:LOG-REL-001 -->\n\nParent: LOG-REL\n\n## User story\n\nAs a release engineer, I want scoped build and deployment records, so that errors can be investigated against the deployed revision.\n\n## Description\n\nScoped build and deployment records.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-REL-001-1**: Release records must bind trusted project/environment to immutable function/flow/build identity and deployment provenance.\n- **FR-LOG-REL-001-2**: Debug artifacts must be uploaded through scoped CI credentials with digests, ownership and explicit retention/access policies.\n\n## Acceptance criteria\n\n- [ ] Treat release strings as opaque IDs; track actual deployment ordering, rollback and concurrent canary deployments.\n- [ ] Store artifacts through falcone-s3 native/external bindings with secrets-managed credentials and verified manifests.\n- [ ] Wrong digest/debug ID or unauthorized upload cannot replace another release artifact.\n\n## Dependencies\n\nLOG-CON-002, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:rel",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-REL-002",
+    "title": "[LOG-REL-002] Implement safe source-map and stack enrichment",
+    "body": "<!-- falcone-logs:LOG-REL-002 -->\n\nParent: LOG-REL\n\n## User story\n\nAs a developer, I want readable source locations for approved runtimes, so that I can diagnose exceptions in deployed code.\n\n## Description\n\nReadable source locations for approved runtimes.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-REL-002-1**: Symbolication must use verified matching artifacts and supported language/debug profiles with bounded isolated parsing.\n- **FR-LOG-REL-002-2**: Original sanitized frames and enriched projections must remain versioned, scoped and subject to source-access/redaction rules.\n\n## Acceptance criteria\n\n- [ ] Start with JS/TS source maps and already-symbolic Node/Python/Go frames; WASM/native formats require separate qualification.\n- [ ] Test missing/late maps, malicious archives, embedded source secrets and mismatched builds without executing code or fetching arbitrary URLs.\n- [ ] Enrichment cannot duplicate events, silently change counts or expose source snippets to log-only viewers.\n\n## Dependencies\n\nLOG-REL-001, LOG-PRV-003, LOG-ERR-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:rel",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-REL-003",
+    "title": "[LOG-REL-003] Detect regressions using deployment-aware evidence",
+    "body": "<!-- falcone-logs:LOG-REL-003 -->\n\nParent: LOG-REL\n\n## User story\n\nAs a release owner, I want reliable new/regressed-error indicators, so that late data does not create false release alarms.\n\n## Description\n\nReliable new/regressed-error indicators.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-REL-003-1**: Regression detection must evaluate validated release/deployment lineage and explicit resolution boundaries rather than lexical version ordering.\n- **FR-LOG-REL-003-2**: Unknown or late old-release events must be distinguished from qualified new regressions and must not spuriously reopen resolved issues.\n\n## Acceptance criteria\n\n- [ ] Test resolve-in-release, rollback, redeploy, parallel canaries and delayed event ingestion.\n- [ ] Compare only compatible collection/sampling windows and show observed counts/coverage.\n- [ ] Commit regression transition and alert intent once; release correlation is not proof that a commit caused the bug.\n\n## Dependencies\n\nLOG-REL-002, LOG-ERR-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:rel",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-SEA",
+    "title": "[Epic][LOG-SEA] Search, live tail and exports",
+    "body": "<!-- falcone-logs:LOG-SEA -->\n\n## Outcome\n\nProvide useful investigation queries within enforced scope and cost limits.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-SEA-001: Implement scoped log, error and trace search\n- [ ] LOG-SEA-002: Implement resumable authorized live tail\n- [ ] LOG-SEA-003: Implement redacted exports and bounded archive investigations\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:sea"
+    ]
+  },
+  {
+    "id": "LOG-SEA-001",
+    "title": "[LOG-SEA-001] Implement scoped log, error and trace search",
+    "body": "<!-- falcone-logs:LOG-SEA-001 -->\n\nParent: LOG-SEA\n\n## User story\n\nAs a developer, I want field/text/time search and safe aggregates, so that I can find relevant diagnostic evidence quickly.\n\n## Description\n\nField/text/time search and safe aggregates.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-SEA-001-1**: The query API must compile an allowlisted AST with mandatory scope/time bounds, pagination and bounded aggregation/full-text capabilities.\n- **FR-LOG-SEA-001-2**: Search responses must expose projection freshness, coverage, sampling, truncation and partial/timeout status.\n\n## Acceptance criteria\n\n- [ ] Test severity/service/release/run/activation/query filters, facets and logs-to-trace joins under two tenants.\n- [ ] No raw backend SQL or external table functions; enforce deadline/scanned-byte limits and server-side cancellation.\n- [ ] Use opaque scoped cursors and defined concurrent-ingest ordering; missing data is not returned as healthy or zero errors.\n\n## Dependencies\n\nLOG-STO-001, LOG-TEN-002, LOG-GOV-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:sea",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-SEA-002",
+    "title": "[LOG-SEA-002] Implement resumable authorized live tail",
+    "body": "<!-- falcone-logs:LOG-SEA-002 -->\n\nParent: LOG-SEA\n\n## User story\n\nAs an operator, I want live logs with clear reconnect behavior, so that I can investigate running work without losing track of gaps.\n\n## Description\n\nLive logs with clear reconnect behavior.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-SEA-002-1**: Live tail must use a typed scoped cursor, bounded subscriber buffers, permission rechecks and an explicit resume horizon.\n- **FR-LOG-SEA-002-2**: Tail gaps, overflow, retention expiry and disconnects must be visible rather than silently dropping records.\n\n## Acceptance criteria\n\n- [ ] Test reconnect, slow clients, tenant changes, token expiry and concurrent source streams; no globally ordered log promise.\n- [ ] Preserve current workflow SSE endpoint/cursor independently; add new tail transport through Falcone conventions.\n- [ ] Support SSE first where appropriate and a qualified WebSocket adapter if required, with equivalent auth/backpressure semantics.\n\n## Dependencies\n\nLOG-SEA-001, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:sea",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-SEA-003",
+    "title": "[LOG-SEA-003] Implement redacted exports and bounded archive investigations",
+    "body": "<!-- falcone-logs:LOG-SEA-003 -->\n\nParent: LOG-SEA\n\n## User story\n\nAs a support engineer, I want controlled exports and older evidence retrieval, so that investigations remain reproducible without bypassing policy.\n\n## Description\n\nControlled exports and older evidence retrieval.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-SEA-003-1**: Exports and archive queries must reauthorize scope and apply current masking, retention and resource budgets before producing results.\n- **FR-LOG-SEA-003-2**: Large exports/rehydration must be asynchronous jobs with progress, expiry, checksums and auditable download access.\n\n## Acceptance criteria\n\n- [ ] Test hot/cold overlap dedupe, cancelled jobs, expired data, cross-tenant manifests and partial archives.\n- [ ] Protect CSV/JSON downloads from injection and secret leakage; choose proxied retrieval when immediate revocation is required.\n- [ ] Saved export links do not preserve access after policy revocation; all objects have explicit lifecycle and cleanup.\n\n## Dependencies\n\nLOG-SEA-001, LOG-STO-002, LOG-TEN-003, LOG-PRV-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:sea",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-STO",
+    "title": "[Epic][LOG-STO] Storage, idempotency and retention",
+    "body": "<!-- falcone-logs:LOG-STO -->\n\n## Outcome\n\nStore diagnostic evidence with truthful consistency and deletion guarantees.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-STO-001: Implement analytical projections and exact issue-state persistence\n- [ ] LOG-STO-002: Implement verified S3 archives and debug/export storage\n- [ ] LOG-STO-003: Implement retention, tombstones and privacy purge\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:sto"
+    ]
+  },
+  {
+    "id": "LOG-STO-001",
+    "title": "[LOG-STO-001] Implement analytical projections and exact issue-state persistence",
+    "body": "<!-- falcone-logs:LOG-STO-001 -->\n\nParent: LOG-STO\n\n## User story\n\nAs a platform engineer, I want separate transactional state and scalable telemetry storage, so that search load does not corrupt issue lifecycle.\n\n## Description\n\nSeparate transactional state and scalable telemetry storage.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-STO-001-1**: PostgreSQL must own scoped product/issue state and deduplicated error transitions while the approved analytical backend owns query projections.\n- **FR-LOG-STO-001-2**: Projection writes and queries must handle transport/batch retries without relying on eventual background merges for immediate exact counts.\n\n## Acceptance criteria\n\n- [ ] Test broker replay, changed insert batch boundaries, lost acknowledgements and index failure around PostgreSQL commit.\n- [ ] Qualify ClickHouse dedupe/FINAL or equivalent semantics; naive materialized sums of duplicate raw rows cannot drive exact alerts.\n- [ ] Expose independent consumer watermarks; no cross-Kafka/PostgreSQL/ClickHouse transaction or unlimited dedupe window is claimed.\n\n## Dependencies\n\nLOG-CON-003, LOG-COR-001, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:sto",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-STO-002",
+    "title": "[LOG-STO-002] Implement verified S3 archives and debug/export storage",
+    "body": "<!-- falcone-logs:LOG-STO-002 -->\n\nParent: LOG-STO\n\n## User story\n\nAs a storage operator, I want scoped immutable diagnostic archives, so that hot retention can be bounded while selected evidence remains available.\n\n## Description\n\nScoped immutable diagnostic archives.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-STO-002-1**: Archive batches must use versioned sanitized schemas, scope/time metadata and checksummed manifests published only after verified object completion.\n- **FR-LOG-STO-002-2**: Archive/debug/export storage must work through qualified falcone-s3 native or external bindings with appropriate retention and credentials.\n\n## Acceptance criteria\n\n- [ ] Test interrupted uploads, orphan cleanup, missing/wrong object versions, failed manifest commit and restore.\n- [ ] Rehydrate only authorized bounded ranges, with temporary index expiry and visible coverage/cost.\n- [ ] Do not assume every S3 provider supports identical retention or instant signed-link revocation.\n\n## Dependencies\n\nLOG-STO-001, LOG-PRV-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:sto",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-STO-003",
+    "title": "[LOG-STO-003] Implement retention, tombstones and privacy purge",
+    "body": "<!-- falcone-logs:LOG-STO-003 -->\n\nParent: LOG-STO\n\n## User story\n\nAs a privacy administrator, I want effective deletion across all diagnostic copies, so that expired or deleted data cannot reappear through archives or replay.\n\n## Description\n\nEffective deletion across all diagnostic copies.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-STO-003-1**: Effective retention must honor source/activation restrictions and scoped privacy policy across hot data, archives, artifacts, caches and exports.\n- **FR-LOG-STO-003-2**: Deletion must create authoritative query-enforced tombstones and track asynchronous physical cleanup including replay/restore handling.\n\n## Acceptance criteria\n\n- [ ] Test source expiry, tenant purge, late Kafka delivery, archive rehydrate and restore before serving reads.\n- [ ] Separate logical inaccessibility from physical deletion in ClickHouse, mixed Kafka segments, shared archives and backups.\n- [ ] Audit legal holds and conflicts; derived fingerprints/comments/source snippets are part of the deletion inventory.\n\n## Dependencies\n\nLOG-STO-002, LOG-TEN-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:sto",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ALT",
+    "title": "[Epic][LOG-ALT] Alerts and controlled integrations",
+    "body": "<!-- falcone-logs:LOG-ALT -->\n\n## Outcome\n\nNotify on actionable diagnostic conditions without duplicate storms or hidden side effects.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-ALT-001: Implement scoped alert rules and state transitions\n- [ ] LOG-ALT-002: Implement approved notification delivery and incident history\n- [ ] LOG-ALT-003: Implement explicit GitHub and workflow integration commands\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:alt"
+    ]
+  },
+  {
+    "id": "LOG-ALT-001",
+    "title": "[LOG-ALT-001] Implement scoped alert rules and state transitions",
+    "body": "<!-- falcone-logs:LOG-ALT-001 -->\n\nParent: LOG-ALT\n\n## User story\n\nAs an application owner, I want alerts on new errors, regressions and sustained failures, so that problems are visible before users report them.\n\n## Description\n\nAlerts on new errors, regressions and sustained failures.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-ALT-001-1**: Alert rules must define scoped conditions, windows, lateness/watermarks, thresholds, cooldown/hysteresis and no-data behavior.\n- **FR-LOG-ALT-001-2**: Alert evaluation must distinguish deduplicated exact counts from sampled or incomplete rates and commit each transition once.\n\n## Acceptance criteria\n\n- [ ] Support new/regressed issue, error/latency threshold, slow query and ingestion-lag conditions with previews.\n- [ ] Test late events, missing denominators, changed sampling, snooze/mute schedules and recovery transitions.\n- [ ] Alert state/outbox commit atomically in its store; core evaluation does not depend on workflow/serverless health.\n\n## Dependencies\n\nLOG-ERR-002, LOG-REL-003, LOG-SEA-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:alt",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ALT-002",
+    "title": "[LOG-ALT-002] Implement approved notification delivery and incident history",
+    "body": "<!-- falcone-logs:LOG-ALT-002 -->\n\nParent: LOG-ALT\n\n## User story\n\nAs an on-call operator, I want reliable scoped notifications, so that alerts can be routed without leaking customer data.\n\n## Description\n\nReliable scoped notifications.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-ALT-002-1**: Notification delivery must use approved destinations, redacted payloads, secrets references, retry budgets, deduplication identity and DLQ state.\n- **FR-LOG-ALT-002-2**: Users must be able to inspect/test authorized delivery status and retry safe failures without claiming exactly-once external effects.\n\n## Acceptance criteria\n\n- [ ] Test webhook signing/rotation, timeout after remote success, provider rate limits, disabled endpoints and SSRF/redirect changes.\n- [ ] Console/email/webhook adapters are capabilities; no live destination is enabled by repository bootstrap.\n- [ ] Maintain incident/notification history separately from error triage and workflow-owned incidents.\n\n## Dependencies\n\nLOG-ALT-001, LOG-PRV-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:alt",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-ALT-003",
+    "title": "[LOG-ALT-003] Implement explicit GitHub and workflow integration commands",
+    "body": "<!-- falcone-logs:LOG-ALT-003 -->\n\nParent: LOG-ALT\n\n## User story\n\nAs a team lead, I want controlled links to engineering and response workflows, so that investigation can lead to authorized follow-up work.\n\n## Description\n\nControlled links to engineering and response workflows.\n\nPhase: P2 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-ALT-003-1**: External ticket creation or workflow response must require explicit configured authority and permitted scoped diagnostic content.\n- **FR-LOG-ALT-003-2**: Integration actions must be auditable, idempotent where supported and loop-safe, with dry-run/preview behavior.\n\n## Acceptance criteria\n\n- [ ] Default to links and previews; log-read permission alone cannot send data to GitHub, a webhook or a model.\n- [ ] Test ticket dedupe, bidirectional status conflicts, revoked credentials and alert-triggered workflow recursion.\n- [ ] Resolving an error never automatically reruns a function or executes a database query; such commands use owning-service authorization.\n\n## Dependencies\n\nLOG-ALT-002, LOG-TEN-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:alt",
+      "phase:p2",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-UI",
+    "title": "[Epic][LOG-UI] Falcone console and developer API",
+    "body": "<!-- falcone-logs:LOG-UI -->\n\n## Outcome\n\nProvide one coherent investigation experience inside Falcone.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-UI-001: Build integrated log, issue and execution investigation views\n- [ ] LOG-UI-002: Implement saved views, dashboards and scoped sharing\n- [ ] LOG-UI-003: Publish versioned APIs, CLI workflows and synthetic examples\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:ui"
+    ]
+  },
+  {
+    "id": "LOG-UI-001",
+    "title": "[LOG-UI-001] Build integrated log, issue and execution investigation views",
+    "body": "<!-- falcone-logs:LOG-UI-001 -->\n\nParent: LOG-UI\n\n## User story\n\nAs a Falcone developer, I want connected investigation pages, so that I can move from a failure to its context without switching products.\n\n## Description\n\nConnected investigation pages.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-UI-001-1**: The console must provide scoped Logs, Errors and Trace/Execution views with entry points from flows, activations and datasources.\n- **FR-LOG-UI-001-2**: Every view must show permissions, freshness, missing evidence and sampling states with safe accessible rendering.\n\n## Acceptance criteria\n\n- [ ] Test one flow-function-query failure journey plus empty, denied, stale, partial and expired-evidence states.\n- [ ] Keep current navigation and IAM context; issue assignment/status is visibly distinct from run status and action controls.\n- [ ] Implement console changes in the owning Falcone repository with contracts and links tracked from this story.\n\n## Dependencies\n\nLOG-SEA-002, LOG-ERR-002, LOG-COR-003, LOG-FUN-003, LOG-QRY-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ui",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-UI-002",
+    "title": "[LOG-UI-002] Implement saved views, dashboards and scoped sharing",
+    "body": "<!-- falcone-logs:LOG-UI-002 -->\n\nParent: LOG-UI\n\n## User story\n\nAs a workspace team member, I want reusable investigation views, so that the team can compare incidents and releases consistently.\n\n## Description\n\nReusable investigation views.\n\nPhase: P2 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-UI-002-1**: Saved filters/dashboards must preserve query version, scope, time semantics and permissions without storing credentials or hidden raw payloads.\n- **FR-LOG-UI-002-2**: Shared views must authorize the current viewer and display explicit coverage/freshness for all widgets.\n\n## Acceptance criteria\n\n- [ ] Support release/error/latency/log-volume panels using compatible denominators and bounded queries.\n- [ ] Test revoked members, copied URLs, timezone changes, deleted resources and renamed fields.\n- [ ] No workspace share becomes a public link or widens to tenant/platform scope automatically.\n\n## Dependencies\n\nLOG-UI-001, LOG-TEN-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ui",
+      "phase:p2",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-UI-003",
+    "title": "[LOG-UI-003] Publish versioned APIs, CLI workflows and synthetic examples",
+    "body": "<!-- falcone-logs:LOG-UI-003 -->\n\nParent: LOG-UI\n\n## User story\n\nAs an integration developer, I want documented machine interfaces, so that I can automate safe diagnostic workflows.\n\n## Description\n\nDocumented machine interfaces.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-UI-003-1**: The service must publish versioned ingestion/query/issue/release/alert schemas and scoped SDK/CLI examples.\n- **FR-LOG-UI-003-2**: Examples must distinguish new proposed routes, existing Falcone contracts, protocol compatibility and quality/error states.\n\n## Acceptance criteria\n\n- [ ] Provide synthetic Node/Go/Python scenarios with two tenants, a retrying flow, a function exception and sanitized query failure.\n- [ ] Document safe credential handling, pagination, retry/partial success and cancellation; no production tokens or raw data in fixtures.\n- [ ] API compatibility tests protect existing audit/SSE/activation behavior while new schemas evolve additively.\n\n## Dependencies\n\nLOG-CON-001, LOG-COR-001, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ui",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-GOV",
+    "title": "[Epic][LOG-GOV] Quotas, sampling and resource governance",
+    "body": "<!-- falcone-logs:LOG-GOV -->\n\n## Outcome\n\nKeep diagnostic cost and fairness under Falcone policy.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-GOV-001: Implement Falcone ingestion and query resource budgets\n- [ ] LOG-GOV-002: Implement sampling, usage facts and coverage reporting\n- [ ] LOG-GOV-003: Implement bounded replay, reprocessing and schema evolution\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:gov"
+    ]
+  },
+  {
+    "id": "LOG-GOV-001",
+    "title": "[LOG-GOV-001] Implement Falcone ingestion and query resource budgets",
+    "body": "<!-- falcone-logs:LOG-GOV-001 -->\n\nParent: LOG-GOV\n\n## User story\n\nAs a platform administrator, I want central limits for diagnostic resources, so that one noisy tenant cannot exhaust the service.\n\n## Description\n\nCentral limits for diagnostic resources.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-GOV-001-1**: Ingest bytes/events, retention, scan budget, tail connections, exports and notification limits must come from Falcone entitlements/policy.\n- **FR-LOG-GOV-001-2**: The service must enforce bounded per-tenant/source fairness and physical safety limits with explicit policy-unavailable behavior.\n\n## Acceptance criteria\n\n- [ ] No independent billing-plan definitions; record current quota failure semantics and any new policy decision explicitly.\n- [ ] Test bursty tenants, high-cardinality attributes, slow queries/subscribers and competing archive/symbolication work.\n- [ ] Security/privacy denials never fail open; physical queue/memory safety remains enforced regardless of business quota mode.\n\n## Dependencies\n\nLOG-CON-002, LOG-TEN-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:gov",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-GOV-002",
+    "title": "[LOG-GOV-002] Implement sampling, usage facts and coverage reporting",
+    "body": "<!-- falcone-logs:LOG-GOV-002 -->\n\nParent: LOG-GOV\n\n## User story\n\nAs a product operator, I want visible cost and loss decisions, so that sampled diagnostics do not misrepresent platform usage.\n\n## Description\n\nVisible cost and loss decisions.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-GOV-002-1**: Sampling and filtering decisions must expose policy/version, known probability and accepted/rejected/dropped coverage metadata.\n- **FR-LOG-GOV-002-2**: Usage facts must distinguish transport retries, accepted logical events, stored bytes and scan/transfer resources under Falcone accounting rules.\n\n## Acceptance criteria\n\n- [ ] Keep sampled telemetry separate from authoritative billing/audit and execution-success denominators.\n- [ ] Test error-priority overload, head/tail sampling constraints and changes between comparison windows.\n- [ ] Do not extrapolate exact users/error rates from unknown sampling; duplicates cannot become fresh billable logical events by accident.\n\n## Dependencies\n\nLOG-GOV-001, LOG-COR-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:gov",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-GOV-003",
+    "title": "[LOG-GOV-003] Implement bounded replay, reprocessing and schema evolution",
+    "body": "<!-- falcone-logs:LOG-GOV-003 -->\n\nParent: LOG-GOV\n\n## User story\n\nAs a maintainer, I want safe replay and enrichment upgrades, so that historical data can be repaired without resurrecting deleted events.\n\n## Description\n\nSafe replay and enrichment upgrades.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-GOV-003-1**: Replay/reprocessing must use scoped jobs, checkpoints, versioned schemas and a documented dedupe horizon covering supported retry/replay windows.\n- **FR-LOG-GOV-003-2**: Historical reimports must honor deletion/source-retention rules and suppress new notifications unless explicitly authorized.\n\n## Acceptance criteria\n\n- [ ] Test changed batches, DLQ replay, algorithm upgrades, expired dedupe windows and import namespaces.\n- [ ] Track independent projection watermarks and partial completion; processing failures do not silently discard admitted events.\n- [ ] Keep original sanitized identity immutable while derived projections evolve; no blind reset of alert/dedupe state during recovery.\n\n## Dependencies\n\nLOG-STO-001, LOG-GOV-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:gov",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-OPS",
+    "title": "[Epic][LOG-OPS] Restricted deployment and reliability",
+    "body": "<!-- falcone-logs:LOG-OPS -->\n\n## Outcome\n\nOperate the service without expanding Falcone runtime privileges.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-OPS-001: Package namespaced collection and approved backend profiles\n- [ ] LOG-OPS-002: Implement SLOs, independent health and incident runbooks\n- [ ] LOG-OPS-003: Implement coordinated backup and diagnostic recovery\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:ops"
+    ]
+  },
+  {
+    "id": "LOG-OPS-001",
+    "title": "[LOG-OPS-001] Package namespaced collection and approved backend profiles",
+    "body": "<!-- falcone-logs:LOG-OPS-001 -->\n\nParent: LOG-OPS\n\n## User story\n\nAs a platform operator, I want deployment compatible with restricted OpenShift, so that observability does not require unavailable cluster permissions.\n\n## Description\n\nDeployment compatible with restricted OpenShift.\n\nPhase: P1 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-OPS-001-1**: Baseline workloads must run non-root/arbitrary UID with namespace-scoped RBAC and no privileged DaemonSet, hostPath, new operator, CRD or eBPF prerequisite.\n- **FR-LOG-OPS-001-2**: Backend endpoints, storage budgets and operator ownership must be explicit prerequisites with qualified version/profile evidence.\n\n## Acceptance criteria\n\n- [ ] Test standard Kubernetes and actual corporate OpenShift builds, writable volume permissions, egress/TLS and pinned images.\n- [ ] Reuse approved infrastructure and namespaced SDK/gateway export; no compatible ClickHouse/Loki/OpenSearch deployment is assumed.\n- [ ] Development/small profiles expose their limits and cannot advertise production throughput or durability.\n\n## Dependencies\n\nLOG-CON-003, LOG-ING-001\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ops",
+      "phase:p1",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-OPS-002",
+    "title": "[LOG-OPS-002] Implement SLOs, independent health and incident runbooks",
+    "body": "<!-- falcone-logs:LOG-OPS-002 -->\n\nParent: LOG-OPS\n\n## User story\n\nAs an SRE, I want measurable ingestion/search/alert health, so that the logs service can diagnose its own degradation.\n\n## Description\n\nMeasurable ingestion/search/alert health.\n\nPhase: P2 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-OPS-002-1**: Operational telemetry must expose acceptance/loss, backlog, projection freshness, query cost, deletion lag and delivery health without sensitive high-cardinality labels.\n- **FR-LOG-OPS-002-2**: The release must publish benchmarked objectives, dependency-failure behavior and named on-call/patch responsibilities.\n\n## Acceptance criteria\n\n- [ ] Measure proposed availability, acceptance/freshness/search/overhead targets against stated datasets and concurrency.\n- [ ] Exercise broker/index/IAM/secrets/S3 outages and logging storms; minimal independent health metrics remain available.\n- [ ] Provide runbooks for poison events, raw-data exposure, stuck purges, duplicate alerts and incomplete restores.\n\n## Dependencies\n\nLOG-OPS-001, LOG-GOV-002, LOG-ALT-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ops",
+      "phase:p2",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-OPS-003",
+    "title": "[LOG-OPS-003] Implement coordinated backup and diagnostic recovery",
+    "body": "<!-- falcone-logs:LOG-OPS-003 -->\n\nParent: LOG-OPS\n\n## User story\n\nAs a recovery operator, I want restorable product state and evidence, so that incidents can be investigated after infrastructure failure.\n\n## Description\n\nRestorable product state and evidence.\n\nPhase: P2 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-OPS-003-1**: Backups must include issue/alert/dedupe state, policy/deletion records and required archive/debug manifests and key dependencies.\n- **FR-LOG-OPS-003-2**: Restore/rebuild must preserve authorization and deletion before serving reads and report recoverable coverage and measured RPO/RTO.\n\n## Acceptance criteria\n\n- [ ] Test cold start with independent secrets bootstrap, PostgreSQL recovery and ClickHouse rebuild from available Kafka/archive windows.\n- [ ] Do not resend historical alerts or resurrect expired telemetry after offset reset/backup restore.\n- [ ] Measure dataset-dependent analytical recovery separately from the proposed metadata service target; missing source data remains a reported gap.\n\n## Dependencies\n\nLOG-OPS-001, LOG-STO-003, LOG-GOV-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:ops",
+      "phase:p2",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-DEV",
+    "title": "[Epic][LOG-DEV] Implementation quality and controlled rollout",
+    "body": "<!-- falcone-logs:LOG-DEV -->\n\n## Outcome\n\nQualify the new service before collecting production diagnostic data.\n\n## Scope\n\nCustom Falcone log/error investigation for flows, functions and queries. Preserve Falcone scope, privacy and execution authority. See [architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) and [integration ownership](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n\n## Stories\n\n- [ ] LOG-DEV-001: Implement reproducible builds and maintenance gates\n- [ ] LOG-DEV-002: Qualify privacy, isolation, protocol and failure behavior\n- [ ] LOG-DEV-003: Run cross-service canaries and controlled production rollout\n\n## Exit criteria\n\nAll child acceptance criteria have linked evidence and applicable privacy, scope, compatibility and recovery review. Planning publication does not mean implementation is complete.\n",
+    "labels": [
+      "type:epic",
+      "area:dev"
+    ]
+  },
+  {
+    "id": "LOG-DEV-001",
+    "title": "[LOG-DEV-001] Implement reproducible builds and maintenance gates",
+    "body": "<!-- falcone-logs:LOG-DEV-001 -->\n\nParent: LOG-DEV\n\n## User story\n\nAs a maintainer, I want attributable secure releases, so that components can be updated without silent protocol or policy drift.\n\n## Description\n\nAttributable secure releases.\n\nPhase: P1 \u00b7 Effort: M\n\n## Requirements\n\n- **FR-LOG-DEV-001-1**: Builds must pin dependencies/images, publish SBOM/provenance and verify selected component/transitive licenses.\n- **FR-LOG-DEV-001-2**: The project must define vulnerability response, supported SDK/backend versions and compatible schema upgrade/rollback gates.\n\n## Acceptance criteria\n\n- [ ] Scan for credentials, vulnerable dependencies and unsafe permissions with owned time-limited exceptions.\n- [ ] Do not copy FSL/enterprise code under an assumed open-source license; choose the repository license before implementation distribution.\n- [ ] Keep requirement/backlog/issue IDs reproducible and validate dependency/parent links without claiming a generated plan is tested runtime code.\n\n## Dependencies\n\nLOG-CON-003, LOG-UI-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:dev",
+      "phase:p1",
+      "effort:m"
+    ]
+  },
+  {
+    "id": "LOG-DEV-002",
+    "title": "[LOG-DEV-002] Qualify privacy, isolation, protocol and failure behavior",
+    "body": "<!-- falcone-logs:LOG-DEV-002 -->\n\nParent: LOG-DEV\n\n## User story\n\nAs an independent reviewer, I want adversarial and recovery evidence, so that the investigation service does not expose tenant data or misreport incidents.\n\n## Description\n\nAdversarial and recovery evidence.\n\nPhase: P3 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-DEV-002-1**: Production candidates must pass cross-tenant, synthetic-secret, protocol, grouping/dedupe, retention and outage tests for every enabled profile.\n- **FR-LOG-DEV-002-2**: Independent review must cover privacy-before-persistence, source/artifact access, analytical query isolation and recovery/notification semantics.\n\n## Acceptance criteria\n\n- [ ] Test all sinks including exporter WAL/DLQ, caches, facets, archives and backup restore with synthetic data.\n- [ ] Inject crashes around broker/PG/index/outbox boundaries, changed batches, stale workers and late release events.\n- [ ] Record residual source-loss/privacy limits and owned exceptions; no upstream certification or perfect redaction claim.\n\n## Dependencies\n\nLOG-DEV-001, LOG-TEN-003, LOG-PRV-003, LOG-OPS-003, LOG-REL-003, LOG-QRY-003\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:dev",
+      "phase:p3",
+      "effort:l"
+    ]
+  },
+  {
+    "id": "LOG-DEV-003",
+    "title": "[LOG-DEV-003] Run cross-service canaries and controlled production rollout",
+    "body": "<!-- falcone-logs:LOG-DEV-003 -->\n\nParent: LOG-DEV\n\n## User story\n\nAs a Falcone product owner, I want verified incremental adoption, so that the new service improves investigation without disrupting workloads.\n\n## Description\n\nVerified incremental adoption.\n\nPhase: P3 \u00b7 Effort: L\n\n## Requirements\n\n- **FR-LOG-DEV-003-1**: Rollout must progress from synthetic fixtures through shadow ingestion and scoped canaries with measurable privacy/performance/integration gates.\n- **FR-LOG-DEV-003-2**: Rollback must preserve admitted issue/audit/deletion state and prevent notification replay while disabling new producers/routes safely.\n\n## Acceptance criteria\n\n- [ ] Demonstrate flow-function-query investigations for two tenants including retries, crash gaps, source maps and archive recovery.\n- [ ] Keep current audit, metrics and execution history authoritative; no Sentry migration or runtime replacement is assumed.\n- [ ] Track reviewed changes in main Falcone, sibling services and charts before enabling production collection or outgoing actions.\n\n## Dependencies\n\nLOG-DEV-002, LOG-UI-002, LOG-COR-003, LOG-FUN-003, LOG-QRY-003, LOG-ALT-003, LOG-SEA-003, LOG-OPS-002\n\n## Design and ownership\n\n[Architecture](https://github.com/gntik-ai/falcone-logs/blob/main/docs/architecture.md) \u00b7 [Telemetry](https://github.com/gntik-ai/falcone-logs/blob/main/docs/telemetry-contract.md) \u00b7 [Privacy](https://github.com/gntik-ai/falcone-logs/blob/main/docs/security-and-privacy.md) \u00b7 [Repository handoffs](https://github.com/gntik-ai/falcone-logs/blob/main/docs/integration-matrix.md).\n",
+    "labels": [
+      "type:story",
+      "area:dev",
+      "phase:p3",
+      "effort:l"
+    ]
+  }
+]
